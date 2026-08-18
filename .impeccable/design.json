@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-18T20:35:00-03:00",
+  "title": "Design System: O Fluxo Certo",
+  "extensions": {
+    "colorMeta": {
+      "signal": {
+        "role": "primary",
+        "displayName": "Verde-Sinal",
+        "canonical": "#15e575",
+        "tonalRamp": ["#002b16", "#004d29", "#00763d", "#00a553", "#15e575", "#59ed9a", "#a5f6c9", "#e8fff2"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Vidro Óptico Preto",
+        "canonical": "#030504",
+        "tonalRamp": ["#030504", "#08100c", "#15211a", "#303b34", "#59635d", "#8c9690", "#c5ccc7", "#f4f6f4"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel de Leitura",
+        "canonical": "#f4f6f4",
+        "tonalRamp": ["#151916", "#303632", "#505852", "#737d76", "#99a29c", "#bcc4bf", "#dfe5e1", "#f4f6f4"]
+      },
+      "risk": {
+        "role": "secondary",
+        "displayName": "Risco Contido",
+        "canonical": "#e18a7f",
+        "tonalRamp": ["#351511", "#5b2720", "#873e34", "#b85d51", "#e18a7f", "#eca9a1", "#f6cec9", "#fff1ef"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display Condensado", "purpose": "Hero e frases de decisão com quebras deliberadas." },
+      "headline": { "displayName": "Headline Editorial", "purpose": "Títulos de seção com alta presença e largura controlada." },
+      "title": { "displayName": "Título Técnico", "purpose": "Registros, etapas e perguntas funcionais." },
+      "body": { "displayName": "Corpo Humano", "purpose": "Explicações, ressalvas e contexto com até 70ch." },
+      "label": { "displayName": "Etiqueta de Instrumento", "purpose": "Índices, estados, controles e metadados em caixa alta." }
+    },
+    "shadows": [
+      { "name": "action-rest", "value": "0 18px 50px rgba(0, 201, 91, 0.2)", "purpose": "Halo difuso sob a ação principal." },
+      { "name": "action-hover", "value": "0 24px 62px rgba(0, 201, 91, 0.28)", "purpose": "Resposta breve do CTA durante hover." },
+      { "name": "proof-rail", "value": "0 28px 70px rgba(0, 0, 0, 0.28)", "purpose": "Separa evidência clara do trilho grafite." },
+      { "name": "dialog", "value": "0 40px 120px rgba(0, 0, 0, 0.65)", "purpose": "Único nível estrutural alto do sistema." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Estados, entrada de conteúdo e resposta dos controles." },
+      { "name": "cta-state", "value": "350ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Elevação e deslocamento de CTAs." },
+      { "name": "instrument-scan", "value": "3.4s infinite cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Leitura viva de baixa intensidade." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "820px" },
+      { "name": "compact-desktop", "value": "1120px" },
+      { "name": "shell-max", "value": "1440px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ação principal única, firme e assimétrica, sempre associada ao verde-sinal.",
+      "html": "<button class=\"ds-btn-primary\"><span>PARTICIPAR DA APRESENTAÇÃO</span><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></button>",
+      "css": ".ds-btn-primary{display:inline-flex;min-height:58px;align-items:center;justify-content:space-between;gap:22px;padding:0 28px;border:0;border-radius:12px 3px 12px 12px;background:var(--signal,#15e575);color:var(--ink,#030504);box-shadow:0 18px 50px rgba(0,201,91,.2);font:700 .72rem/1.2 Manrope,sans-serif;letter-spacing:.04em;text-transform:uppercase;transition:background 350ms,box-shadow 350ms,transform 350ms}.ds-btn-primary svg{width:18px;fill:none;stroke:currentColor;stroke-width:2}.ds-btn-primary:hover{background:#35f58e;box-shadow:0 24px 62px rgba(0,201,91,.28);transform:translateY(-3px)}.ds-btn-primary:focus-visible{outline:3px solid var(--paper,#f4f6f4);outline-offset:4px}"
+    },
+    {
+      "name": "Fixed Brand Navigation",
+      "kind": "nav",
+      "refersTo": "nav-brand",
+      "description": "Marca compacta, autoria discreta e uma única ação no campo óptico.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#top\"><i></i><strong>O FLUXO CERTO</strong><small>por Antony</small></a><button>PARTICIPAR</button></nav>",
+      "css": ".ds-nav{display:flex;height:86px;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid rgba(167,176,170,.18);background:rgba(3,5,4,.86);backdrop-filter:blur(18px);color:var(--paper,#f4f6f4)}.ds-brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font-family:'Barlow Condensed',sans-serif}.ds-brand i{width:18px;height:7px;border:1px solid var(--signal,#15e575);box-shadow:inset 6px 0 0 var(--signal,#15e575)}.ds-brand strong{font-size:1rem;letter-spacing:.02em}.ds-brand small{color:var(--muted,#a7b0aa);font:600 .64rem Manrope,sans-serif}.ds-nav button{height:42px;padding:0 19px;border:0;border-radius:9px 2px 9px 9px;background:var(--signal,#15e575);color:var(--ink,#030504);font:700 .65rem Manrope,sans-serif}.ds-nav button:focus-visible{outline:3px solid var(--paper,#f4f6f4);outline-offset:4px}"
+    },
+    {
+      "name": "Proof Record",
+      "kind": "card",
+      "refersTo": "card-proof",
+      "description": "Frame técnico claro com natureza da evidência declarada e legenda editorial.",
+      "html": "<article class=\"ds-proof\"><div class=\"ds-proof-frame\"><div class=\"ds-proof-chart\">EVIDÊNCIA TÉCNICA</div><button aria-label=\"Ampliar registro\">↗</button></div><div class=\"ds-proof-copy\"><b>01</b><div><small>BACKTEST / SIMULAÇÃO HISTÓRICA</small><h3>Relatório técnico do testador</h3><p>Apresente o registro pelo que ele realmente é.</p></div></div></article>",
+      "css": ".ds-proof{width:min(68vw,1080px);color:var(--paper,#f4f6f4);font-family:Manrope,sans-serif}.ds-proof-frame{position:relative;aspect-ratio:16/8.4;overflow:hidden;border:1px solid rgba(167,176,170,.25);border-radius:14px;background:#e9ecea;box-shadow:0 28px 70px rgba(0,0,0,.28)}.ds-proof-chart{display:grid;height:100%;place-items:center;color:#526058;font:700 .7rem Manrope,sans-serif;letter-spacing:.12em}.ds-proof-frame button{position:absolute;top:18px;right:18px;width:42px;height:42px;border:1px solid rgba(255,255,255,.32);border-radius:50%;background:rgba(3,5,4,.76);color:#f4f6f4}.ds-proof-copy{display:grid;grid-template-columns:62px 1fr;gap:20px;padding:28px 4px 0}.ds-proof-copy b,.ds-proof-copy small{color:var(--signal,#15e575)}.ds-proof-copy small{font-size:.61rem;font-weight:700;letter-spacing:.1em}.ds-proof-copy h3{margin:7px 0 8px;font:600 2rem/1 'Barlow Condensed',sans-serif}.ds-proof-copy p{margin:0;color:var(--muted,#a7b0aa)}"
+    },
+    {
+      "name": "Calibration Pipeline Step",
+      "kind": "custom",
+      "refersTo": "pipeline-step",
+      "description": "Célula de processo conectada por nó verde e numeração tabular.",
+      "html": "<div class=\"ds-pipeline-step\"><span>03</span><i></i><small>RISCO</small><strong>Calcula</strong><p>O risco entra como regra antes da execução.</p></div>",
+      "css": ".ds-pipeline-step{position:relative;min-height:250px;padding:48px 24px;border-top:1px solid rgba(167,176,170,.18);border-bottom:1px solid rgba(167,176,170,.18);background:var(--ink,#030504);color:var(--paper,#f4f6f4);font-family:Manrope,sans-serif}.ds-pipeline-step span{font-variant-numeric:tabular-nums;color:var(--muted,#a7b0aa);font-size:.65rem}.ds-pipeline-step i{display:block;width:7px;height:7px;margin:26px 0;border-radius:50%;background:var(--signal,#15e575);box-shadow:0 0 18px rgba(21,229,117,.35)}.ds-pipeline-step small{display:block;color:var(--signal,#15e575);font-size:.62rem;font-weight:700;letter-spacing:.1em}.ds-pipeline-step strong{display:block;margin:7px 0 14px;font:600 2rem/1 'Barlow Condensed',sans-serif}.ds-pipeline-step p{max-width:24ch;margin:0;color:var(--muted,#a7b0aa);font-size:.84rem;line-height:1.6}"
+    },
+    {
+      "name": "FAQ Disclosure",
+      "kind": "custom",
+      "refersTo": "disclosure",
+      "description": "Pergunta em linha estrutural, sem card, com resposta sóbria e legível.",
+      "html": "<details class=\"ds-disclosure\"><summary><span>O Fluxo Certo garante lucro?</span><i>+</i></summary><p>Não. Mercados financeiros envolvem risco e não existe garantia de resultado.</p></details>",
+      "css": ".ds-disclosure{border-top:1px solid rgba(167,176,170,.18);background:var(--ink,#030504);color:var(--paper,#f4f6f4)}.ds-disclosure:last-child{border-bottom:1px solid rgba(167,176,170,.18)}.ds-disclosure summary{display:flex;min-height:94px;align-items:center;justify-content:space-between;gap:24px;cursor:pointer;list-style:none;font:600 clamp(1.5rem,3vw,2.4rem)/1 'Barlow Condensed',sans-serif}.ds-disclosure summary::-webkit-details-marker{display:none}.ds-disclosure i{color:var(--signal,#15e575);font:400 1.6rem Manrope,sans-serif;transition:transform 300ms}.ds-disclosure[open] i{transform:rotate(45deg)}.ds-disclosure p{max-width:70ch;margin:0;padding:0 56px 30px 0;color:var(--muted,#a7b0aa);font:400 .95rem/1.65 Manrope,sans-serif}.ds-disclosure summary:focus-visible{outline:3px solid var(--paper,#f4f6f4);outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Bancada de Calibração do Fluxo",
+    "overview": "O mercado deixa um rastro legível, e a interface trata cada trecho da rolagem como uma bancada onde esse rastro é observado, medido e explicado. A atmosfera nasce de vidro óptico preto, grafite técnico, off-white e um verde-sinal raro. A voz visual é técnica, humana, sóbria e premium; painéis aparecem apenas quando carregam evidência, regras ou estado.",
+    "keyCharacteristics": [
+      "Contraste profundo com sinal verde raro e funcional.",
+      "Tipografia condensada de alta presença apoiada por texto humano e legível.",
+      "Linhas medidas, escalas, rastros e numeração como gramática recorrente.",
+      "Fotografia real fundida à instrumentação, sem molduras promocionais gratuitas.",
+      "Prova técnica identificada com transparência, nunca convertida em promessa."
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "O verde aparece em uma fração pequena da tela e sempre significa direção, ação, progresso ou confirmação; sua raridade é parte da hierarquia.", "section": "colors" },
+      { "name": "The Legibility Before Drama Rule", "body": "Use a condensada para decisão e estrutura; qualquer explicação, limitação ou prova permanece em Manrope com entrelinha confortável.", "section": "typography" },
+      { "name": "The Calibrated Rhythm Rule", "body": "Cada bloco precisa parecer medido por alinhamentos, linhas ou intervalos; não preencha o espaço vazio com cards repetidos.", "section": "layout" },
+      { "name": "The Flat-by-Default Rule", "body": "Superfícies em repouso se distinguem por tom, borda e transparência; sombra não é decoração de container.", "section": "elevation" },
+      { "name": "The Measured Corner Rule", "body": "A curva deve indicar função: assimetria para ação, 14px para mídia/prova, círculo para controle e zero para estrutura.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do reserve o verde para ação, direção, progresso, nó ativo ou confirmação.",
+      "Do use fotografia real fundida ao campo e gráficos corretamente identificados como evidência.",
+      "Do mantenha linhas, escalas, índices e números alinhados como parte da hierarquia.",
+      "Do preserve contraste, foco visível e uma experiência completa com movimento reduzido."
+    ],
+    "donts": [
+      "Don't use layout genérico de IA, grid repetitivo de cards ou painéis sem informação mensurável.",
+      "Don't transforme a interface em funil cripto neon, cassino ou espetáculo de riqueza.",
+      "Don't use gradient text, halos verdes indiscriminados ou sombras em toda superfície.",
+      "Don't fabrique resultados, depoimentos, urgência, garantias ou qualquer aparência de prova real a partir de simulação."
+    ]
+  }
+}

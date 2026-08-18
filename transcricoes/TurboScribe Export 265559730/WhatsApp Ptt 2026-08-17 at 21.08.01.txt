@@ -1,0 +1,5 @@
+(Transcrito por TurboScribe. Atualize para Ilimitado para remover esta mensagem.)
+
+Aí, mais algumas coisas, né? Aí, pô, eu não sei se eu vou falar lá na hora do ao vivo, né? Mas ali, ó, aqueles testes, ele faz, ele é preciso, né? Além de eu ter mostrado pra ti que ele realmente executa como ele executa na real mesmo, né? Esse teste, ele tem outro ponto que é assim, ó, ele é válido porque ele não precisa ter frações de segundos ou milésimos pra executar, sabe? Tem testes, assim, que eles fazem que em tempo real, o mais preciso possível. Mas mesmo assim, não é como é na realidade, porque às vezes, numa fração de segundo ele estoura, né? Só que pra nós aqui, nesse método, ele não tem essa necessidade. Acho que eu tô fugindo do assunto, mas é isso.
+
+(Transcrito por TurboScribe. Atualize para Ilimitado para remover esta mensagem.)
