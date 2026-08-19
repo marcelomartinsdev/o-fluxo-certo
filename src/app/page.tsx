@@ -13,6 +13,14 @@ const candleHeights = [
   126, 117, 138, 129, 151,
 ];
 
+const marqueeItems = [
+  "O Fluxo Certo",
+  "Apresentação",
+  "Execução sistemática",
+  "Leitura de fluxo",
+  "Risco como regra",
+];
+
 export default function Home() {
   const partnershipDisclosure =
     process.env.NEXT_PUBLIC_PARTNERSHIP_DISCLOSURE?.trim();
@@ -93,10 +101,18 @@ export default function Home() {
         <div className="signal-marquee" aria-label="Contexto da apresentação">
           <div className="marquee-track">
             {[0, 1].map((group) => (
-              <span key={group} aria-hidden={group === 1}>
-                O FLUXO CERTO <i /> APRESENTAÇÃO <i /> EXECUÇÃO SISTEMÁTICA <i />
-                LEITURA DE FLUXO <i /> RISCO COMO REGRA <i />
-              </span>
+              <ul
+                className="marquee-group"
+                key={group}
+                aria-hidden={group === 1 ? true : undefined}
+              >
+                {marqueeItems.map((item) => (
+                  <li key={item}>
+                    <span>{item}</span>
+                    <i aria-hidden="true" />
+                  </li>
+                ))}
+              </ul>
             ))}
           </div>
         </div>
