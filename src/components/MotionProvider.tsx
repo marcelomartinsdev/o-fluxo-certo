@@ -9,50 +9,60 @@ export function MotionProvider() {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    const compactViewport = window.matchMedia("(max-width: 820px)").matches;
     const captureMode = new URLSearchParams(window.location.search).has(
       "capture",
     );
-
-    if (!reduceMotion && !captureMode) root.classList.add("motion-ready");
+    const supportsIntersectionObserver = "IntersectionObserver" in window;
+    const enableRevealMotion =
+      !reduceMotion &&
+      !compactViewport &&
+      !captureMode &&
+      supportsIntersectionObserver;
 
     const revealElements = Array.from(
       document.querySelectorAll<HTMLElement>("[data-reveal]"),
     );
 
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            revealObserver.unobserve(entry.target);
-          }
-        }
-      },
-      { rootMargin: "0px 0px -10%", threshold: 0.12 },
-    );
+    let revealObserver: IntersectionObserver | null = null;
 
-    if (captureMode) {
-      revealElements.forEach((element) => element.classList.add("is-visible"));
+    if (enableRevealMotion) {
+      revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { rootMargin: "0px 0px 12%", threshold: 0.04 },
+      );
+
+      revealElements.forEach((element) => revealObserver?.observe(element));
+      root.classList.add("motion-ready");
     } else {
-      revealElements.forEach((element) => revealObserver.observe(element));
+      revealElements.forEach((element) => element.classList.add("is-visible"));
     }
 
     const trackedSections = Array.from(
       document.querySelectorAll<HTMLElement>("[data-track-view]"),
     );
-    const trackObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          const event = (entry.target as HTMLElement).dataset.trackView;
-          if (event) trackEvent(event);
-          trackObserver.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.35 },
-    );
+    const trackObserver = supportsIntersectionObserver
+      ? new IntersectionObserver(
+          (entries, observer) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              const event = (entry.target as HTMLElement).dataset.trackView;
+              if (event) trackEvent(event);
+              observer.unobserve(entry.target);
+            }
+          },
+          { threshold: 0.35 },
+        )
+      : null;
 
-    trackedSections.forEach((element) => trackObserver.observe(element));
+    trackedSections.forEach((element) => trackObserver?.observe(element));
 
     const stickyCta = document.querySelector<HTMLElement>(".mobile-sticky-cta");
     const hero = document.querySelector<HTMLElement>(".hero");
@@ -72,8 +82,8 @@ export function MotionProvider() {
 
     return () => {
       root.classList.remove("motion-ready");
-      revealObserver.disconnect();
-      trackObserver.disconnect();
+      revealObserver?.disconnect();
+      trackObserver?.disconnect();
       window.removeEventListener("scroll", updateStickyCta);
     };
   }, []);
