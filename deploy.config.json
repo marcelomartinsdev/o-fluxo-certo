@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "projectName": "o-fluxo-certo",
+  "domain": "ofluxocerto.site",
+  "github": {
+    "repository": "o-fluxo-certo",
+    "visibility": "private"
+  },
+  "vercel": {
+    "projectName": "o-fluxo-certo"
+  },
+  "domainConfig": {
+    "www": true,
+    "canonical": "apex"
+  },
+  "environment": {
+    "required": [],
+    "public": {
+      "production": {
+        "NEXT_PUBLIC_SITE_URL": "https://ofluxocerto.site"
+      }
+    }
+  }
+}
