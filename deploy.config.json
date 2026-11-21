@@ -17,7 +17,8 @@
     "required": [],
     "public": {
       "production": {
-        "NEXT_PUBLIC_SITE_URL": "https://ofluxocerto.site"
+        "NEXT_PUBLIC_SITE_URL": "https://ofluxocerto.site",
+        "NEXT_PUBLIC_WHATSAPP_GROUP_URL": "https://chat.whatsapp.com/J3KzUxOwi80JGuYAEULiFE?s=cl&p=i&iam=2"
       }
     }
   }
